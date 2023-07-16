@@ -3,24 +3,22 @@ import pandas as pd
 import requests
 import bs4
 
+import json
+
 file_name = 'baseStatus.xlsx'
 rom_name = 'Pokemon Emerald Rogue EX (v1.3.2a).gba'
+json_name = './src/pokemonForum.json'
 
-# 通常 + メガシンカ + ゲンシ + リージョン(アローラ) + ガラル + おきがえピカチュウ + サトピカ + ギザみみピチュー
-select_row1 = 898 + 48 + 2 + 18 + 19 + 5 + 8 + 1 + 1
-# アンノーン + ポワルン + デオキシス + [すな[ミノムッチ,ミノマダム],ゴミ[ミノムッチ,ミノマダム]] + [カラナクシ,トリトドン] + ロトム + ギラティナ + シェイミ + アルセウス
-select_row2 = 28 + 3 + 3 + 4 + 2 + 5 + 1 + 1 + 17
-# バスラオ(白なし) + ヒヒダルマ ダルマモード[原種,ガラル] + シキジカ + メブキジカ + 霊獣 + キュレム + ケルディオ + メロエッタ + ゲノセクト
-select_row3 = 1 + 2 + 3 + 3 + 3 + 2 + 1 + 1 + 4
-# ゲッコウガ[通常,きずなへんげ] + ビビヨン + フラベベ + フラエッテ[,AZ] + フラージェス + トリミアン + ニャオニクス + ギルガルド + バケッチャ + パンプジン + ゼルネアス + ジガルデ[10%,50%,50%,100%] + フーパ
-select_row4 = 2 + 19 + 4 + 5 + 4 + 9 + 1 + 1 + 3 + 3 + 1 + 4 + 1
-# オドリドリ + イワンコ + ルガルガン[まよなか,たそがれ] + ヨワシ + シルヴァディ + メテノ[流星] + メテノ[コア] + ミミッキュ + ネクロズマ[日食,月食,ウルトラ] + マギアナ + 
-select_row5 = 3 + 1 + 2 + 1 + 17 + 6 + 7 + 1 + 3 + 1
-# ウッウ + ストリンダー + [ヤバチャ,ポットデス] + マホイップ + コオリッポ + イエッサン + モルペコ + [ザシアン,ザマゼンタ,ムゲンダイナ] + ウーラオス + ザルード + バドレックス[はくばじょう,こくばじょう]
-select_row6 = 2 + 1 + 2 + 8 + 1 + 1 + 1 + 3 + 1 + 1 + 2
+# ROM 情報
+START_ADDRESS = 0x3A4310
+LEN_POKEMON_BASE = 0x24
 
-read_len = select_row1 + select_row2 + select_row3 + select_row4 + select_row5 + select_row6
-write_len = read_len
+write_option = {
+  "MAX_Name_Pokemon": 898,
+  "MAX_Name_Pokemon_F": 308
+}
+
+read_len = write_option["MAX_Name_Pokemon"] + write_option["MAX_Name_Pokemon_F"]
 
 sheet_Name = {
   "Master": 'BaseMaster',
@@ -37,31 +35,23 @@ row_Name = {
   "素早さ": []
 }
 
-write_option = {
-  "MAX_Name_Pokemon": 898
-}
-
 html_urls = {
   "Name": "https://wiki.xn--rckteqa2e.com/wiki/%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%E4%B8%80%E8%A6%A7"
 }
 
 # 種族値データ読み取り
-def rom_fetch_baseStatus():
+def fetch_rom_baseStatus():
   with open(rom_name,'rb') as f:
 
     # 開始位置
-    start_address = 0x3A4310
-    # Base Byte
-    len_pokemonBase = 0x24
-
-    f.seek(start_address)
-    data_all = f.read(len_pokemonBase * read_len)
+    f.seek(START_ADDRESS)
+    data_all = f.read(LEN_POKEMON_BASE * read_len)
 
     rom_fetch_datas = []
     # 全体のデータを 36byte に分割
-    for i in range(0,len(data_all),len_pokemonBase):
+    for i in range(0,len(data_all),LEN_POKEMON_BASE):
       # 36byte
-      base_param = data_all[i: i + len_pokemonBase]
+      base_param = data_all[i: i + LEN_POKEMON_BASE]
       rom_fetch_datas.append(base_param)
     
     # 種族値データ
@@ -89,26 +79,59 @@ def rom_fetch_baseStatus():
 
     return export_datas
 
+# ポケモンの別フォルム名を取得
+def fetch_PokemonName_Forum():
+  f = open(json_name)
+  data = json.load(f)
+  f.close()
+  
+  return data
+
 # 種族値データの適用
-def attach_BaseStatus(base_status,length):
-  for i in range(length):
+def attach_BaseStatus(base_status):
+  for i in range(len(base_status)):
     row_Name["HP"].append(base_status[i][0])
     row_Name["攻撃"].append(base_status[i][1])
     row_Name["防御"].append(base_status[i][2])
     row_Name["特攻"].append(base_status[i][3])
     row_Name["特防"].append(base_status[i][4])
     row_Name["素早さ"].append(base_status[i][5])
+  
+  return
 
 # ポケモン名の適用
-def attach_PokemonName(pokemonList,length):
-  for i in range(length):
+def attach_PokemonName(pokemonList):
+  for i in range(read_len):
     if i < write_option["MAX_Name_Pokemon"]:
       row_Name["Name"].append(pokemonList[i])
     else:
       row_Name["Name"].append(None)
+  
+  return
+
+# ポケモン名の適用すべて
+def attach_PokemonNameAll(pokemonList,forumdata):
+  attach_PokemonName(pokemonList)
+
+  diff = len(row_Name["Name"]) - write_option["MAX_Name_Pokemon"]
+
+  # 登録数が足らない
+  if len(forumdata) < diff:
+    for i in range(len(forumdata)):
+      row_Name["Name"][write_option["MAX_Name_Pokemon"] + i] = forumdata[i]
+    return
+  elif len(forumdata) > diff:
+    print("Error __PokemonNameAll__")
+    return
+  else:
+    # 登録数 ぴったり
+    for i in range(diff):
+      row_Name["Name"][write_option["MAX_Name_Pokemon"] + i] = forumdata[i]
+  
+  return
 
 # HTML ポケモン名を取得
-def html_fetch_pokemonList():
+def fetch_html_pokemonData():
   req = requests.get(html_urls["Name"])
   html_text = bs4.BeautifulSoup(req.text,'html.parser')
   
@@ -147,45 +170,115 @@ def html_fetch_pokemonList():
 
   return export_data
 
-def read_excel():
-  print()
-  print('read')
+# ROM 書き出す パラメータ
+def edit_rom_param(rom_data,excel_data):
 
+  # 開始位置
+
+  # 配列にすることで 編集を可能にする
+  rom_data = list(bytes(rom_data))
+
+  # 編集項目
+  for i in range(read_len):
+    pokemonData = excel_data[i]
+
+    start_pointer = START_ADDRESS + i * LEN_POKEMON_BASE
+    for row in range(LEN_POKEMON_BASE):
+      # HP
+      if row == 0x04:
+        rom_data[start_pointer + row] = int(pokemonData[1])
+      # 攻撃
+      elif row == 0x05:
+        rom_data[start_pointer + row] = int(pokemonData[2])
+      # 防御
+      elif row == 0x06:
+        rom_data[start_pointer + row] = int(pokemonData[3])
+      # 素早さ
+      elif row == 0x07:
+        rom_data[start_pointer + row] = int(pokemonData[6])
+      # 特攻
+      elif row == 0x08:
+        rom_data[start_pointer + row] = int(pokemonData[4])
+      # 特防
+      elif row == 0x09:
+        rom_data[start_pointer + row] = int(pokemonData[5])
+
+  # bytes に戻す
+  rom_data = bytes(rom_data)
+
+  return rom_data
+
+# Excel 読み込み
+def read_excel(sheet_Name):
   excel_file = pd.ExcelFile(file_name)
+  df_master = pd.read_excel(excel_file,sheet_Name,index_col=0)
 
-  df_master = pd.read_excel(excel_file,sheet_name=sheet_Name["Master"],index_col=0)
-  df_edit = pd.read_excel(excel_file,sheet_name=sheet_Name["Edit"],index_col=0)
+  values = df_master.values
+  return values
 
-  value_master = df_master.values
-  value_edit = df_edit.values
-
-  return {
-    sheet_Name["Master"]: value_master,
-    sheet_Name["Edit"]: value_edit
-  }
-
+# Excel 書き出し
 def write_excel():
-
   # 編集用 保存
   export_file = pd.DataFrame(row_Name)
   export_file.to_excel(file_name,index=True,sheet_name=sheet_Name["Master"])
 
+# ROM 書き出し
+def write_rom(excel_data):
+
+  rom_data = None
+  with open(rom_name,'rb') as f:
+
+    # 全体
+    rom_data = f.read()
+    print(hex(len(rom_data)))
+
+    rom_data = edit_rom_param(rom_data,excel_data)
+
+    f.close()
+    pass
+  
+  with open(rom_name,'wb') as f:
+    f.write(rom_data)
+    f.close()
+    pass
+
+  return
+
 if __name__ == '__main__':
 
-  # ROM read 種族値データ
-  base_status = rom_fetch_baseStatus()
-  attach_BaseStatus(base_status,write_len)
+  # 初期書き出し
+  def write_first():
+    # ROM read 種族値データ
+    base_status = fetch_rom_baseStatus()
 
-  # HTML read ポケモン名
-  pokemonlist = html_fetch_pokemonList()
-  attach_PokemonName(pokemonlist["Name"],write_len)
+    attach_BaseStatus(base_status)
+
+    # HTML read ポケモン名
+    pokemondata = fetch_html_pokemonData()
+
+    pokemon_names = pokemondata["Name"]
+    pokemonlist_names_f = fetch_PokemonName_Forum()
+
+    attach_PokemonNameAll(pokemon_names,pokemonlist_names_f)
+
+    # 書き出し
+    write_excel()
+
+    return
+  
+  # ROM書き出し
+  def writing_rom():
+    # 読み込み
+    excel_data = read_excel(sheet_Name["Master"])
+    write_rom(excel_data)
+    return
+  
+
+  # 読み込み
+
+  # write_first()
 
   # 書き出し
-  write_excel()
-
-  # Excel_data = read_excel()
-  # Pokemon_Context = Pokemon_Fetch_List()
-  # write_excel(Excel_data,Pokemon_Context)
-
+  writing_rom()
   print('fin rom edited!')
   print()

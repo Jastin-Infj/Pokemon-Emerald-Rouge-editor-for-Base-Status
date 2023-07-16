@@ -1,2 +1,4 @@
 *.gba
-./env/*
+*.xlsx
+env
+env/*
