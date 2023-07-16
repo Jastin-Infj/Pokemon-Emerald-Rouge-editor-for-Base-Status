@@ -86,9 +86,9 @@ if __name__ == '__main__':
       data_all = f.read(params["Length"] * read_len)
 
       fetch_base_datas = []
-      # 全体のデータを 34byte に分割
+      # 全体のデータを 36byte に分割
       for cur in range(0,len(data_all),params["Length"]):
-        # 34byte
+        # 36byte
         base_param = data_all[cur: cur + params["Length"]]
         fetch_base_datas.append(base_param)
 
