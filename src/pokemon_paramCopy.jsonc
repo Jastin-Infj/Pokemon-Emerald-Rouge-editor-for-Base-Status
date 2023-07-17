@@ -1,0 +1,1767 @@
+{
+  // ピカチュウ おきがえ
+  "87": {
+    "Copy": 24,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ピカチュウ ハードロック
+  "88": {
+    "Copy": 24,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ピカチュウ マダム
+  "89": {
+    "Copy": 24,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ピカチュウ アイドル
+  "90": {
+    "Copy": 24,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ピカチュウ ドクター
+  "91": {
+    "Copy": 24,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ピカチュウ マスクド
+  "92": {
+    "Copy": 24,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ピカチュウ オリジナル
+  "93": {
+    "Copy": 24,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ピカチュウ ホウエン
+  "94": {
+    "Copy": 24,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ピカチュウ シンオウ
+  "95": {
+    "Copy": 24,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ピカチュウ イッシュ
+  "96": {
+    "Copy": 24,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ピカチュウ カロス
+  "97": {
+    "Copy": 24,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ピカチュウ アローラ
+  "98": {
+    "Copy": 24,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ピカチュウ ワールド
+  "99": {
+    "Copy": 24,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ピカチュウ キミにきめた
+  "100": {
+    "Copy": 24,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ピチュー ギザみみ
+  "101": {
+    "Copy": 171,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン B
+  "102": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン C
+  "103": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン D
+  "104": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン E
+  "105": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン F
+  "106": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン G
+  "107": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン H
+  "108": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン I
+  "109": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン J
+  "110": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン K
+  "111": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン L
+  "112": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン M
+  "113": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン N
+  "114": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン O
+  "115": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン P
+  "116": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン Q
+  "117": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン R
+  "118": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン S
+  "119": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン T
+  "120": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン U
+  "121": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン V
+  "122": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン W
+  "123": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン X
+  "124": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン Y
+  "125": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン Z
+  "126": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン !
+  "127": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アンノーン ?
+  "128": {
+    "Copy": 200,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ポワルン たいよう
+  "129": {
+    "Copy": 350,
+    // true 必須
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ポワルン あまみず
+  "130": {
+    "Copy": 350,
+    // true 必須
+    "H": true, 
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ポワルン ゆきぐも
+  "131": {
+    "Copy": 350,
+    // true 必須
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // チェリム ポジ
+  "139": {
+    "Copy": 420,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // カラナクシ ひがし
+  "140": {
+    "Copy": 421,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // トリトドン ひがし
+  "141": {
+    "Copy": 422,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ロトム ヒート
+  "142": {
+    "Copy": 478,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ロトム ウォッシュ
+  "143": {
+    "Copy": 478,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ロトム フロスト
+  "144": {
+    "Copy": 478,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ロトム カット
+  "145": {
+    "Copy": 478,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ロトム スピン
+  "146": {
+    "Copy": 478,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アルセウス かくとう
+  "149": {
+    "Copy": 492,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アルセウス ひこう
+  "150": {
+    "Copy": 492,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アルセウス どく
+  "151": {
+    "Copy": 492,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アルセウス じめん
+  "152": {
+    "Copy": 492,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アルセウス いわ
+  "153": {
+    "Copy": 492,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アルセウス むし
+  "154": {
+    "Copy": 492,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アルセウス ゴースト
+  "155": {
+    "Copy": 492,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アルセウス はがね
+  "156": {
+    "Copy": 492,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アルセウス ほのお
+  "157": {
+    "Copy": 492,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アルセウス みず
+  "158": {
+    "Copy": 492,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アルセウス くさ
+  "159": {
+    "Copy": 492,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アルセウス でんき
+  "160": {
+    "Copy": 492,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アルセウス エスパー
+  "161": {
+    "Copy": 492,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アルセウス こおり
+  "162": {
+    "Copy": 492,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アルセウス ドラゴン
+  "163": {
+    "Copy": 492,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アルセウス あく
+  "164": {
+    "Copy": 492,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // アルセウス フェアリー
+  "165": {
+    "Copy": 492,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // シキジカ なつ
+  "169": {
+    "Copy": 584,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // シキジカ あき
+  "170": {
+    "Copy": 584,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // シキジカ ふゆ
+  "171": {
+    "Copy": 584,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // メブキジカ なつ
+  "172": {
+    "Copy": 585,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // メブキジカ あき
+  "173": {
+    "Copy": 585,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // メブキジカ ふゆ
+  "174": {
+    "Copy": 585,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // メロエッタ ステップ
+  "181": {
+    "Copy": 647,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ゲノセクト アクア
+  "182": {
+    "Copy": 648,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ゲノセクト イナズマ
+  "183": {
+    "Copy": 648,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ゲノセクト ブレイズ
+  "184": {
+    "Copy": 648,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ゲノセクト フリーズ
+  "185": {
+    "Copy": 648,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ゲッコウガ きずな
+  "186": {
+    "Copy": 657,
+    // true 必須
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ビビヨン ひょうせつ
+  "188": {
+    "Copy": 665,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ビビヨン ゆきぐに
+  "189": {
+    "Copy": 665,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ビビヨン せつげん
+  "190": {
+    "Copy": 665,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ビビヨン たいりく
+  "191": {
+    "Copy": 665,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ビビヨン ていえん
+  "192": {
+    "Copy": 665,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ビビヨン みやび
+  "193": {
+    "Copy": 665,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ビビヨン はなぞの
+  "194": {
+    "Copy": 665,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ビビヨン モダン
+  "195": {
+    "Copy": 665,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ビビヨン マリン
+  "196": {
+    "Copy": 665,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ビビヨン ぐんとう
+  "197": {
+    "Copy": 665,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ビビヨン こうや
+  "198": {
+    "Copy": 665,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ビビヨン さじん
+  "199": {
+    "Copy": 665,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ビビヨン たいが
+  "200": {
+    "Copy": 665,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ビビヨン スコール
+  "201": {
+    "Copy": 665,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ビビヨン サバンナ
+  "202": {
+    "Copy": 665,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ビビヨン たいよう
+  "203": {
+    "Copy": 665,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ビビヨン オーシャン
+  "204": {
+    "Copy": 665,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ビビヨン ジャングル
+  "205": {
+    "Copy": 665,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ビビヨン ボール
+  "206": {
+    "Copy": 665,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // フラベベ きいろ
+  "207": {
+    "Copy": 668,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // フラベベ しろ
+  "208": {
+    "Copy": 668,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // フラベベ オレンジ
+  "209": {
+    "Copy": 668,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // フラベベ あお
+  "210": {
+    "Copy": 668,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // フラエッテ きいろ
+  "211": {
+    "Copy": 669,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // フラエッテ しろ
+  "212": {
+    "Copy": 669,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // フラエッテ オレンジ
+  "213": {
+    "Copy": 669,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // フラエッテ あお
+  "214": {
+    "Copy": 669,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // フラージェス きいろ
+  "216": {
+    "Copy": 670,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // フラージェス しろ
+  "217": {
+    "Copy": 670,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // フラージェス オレンジ
+  "218": {
+    "Copy": 670,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // フラージェス あお
+  "219": {
+    "Copy": 670,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // トリミアン ハートカット
+  "220": {
+    "Copy": 675,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // トリミアン スターカット
+  "221": {
+    "Copy": 675,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // トリミアン ダイヤカット
+  "222": {
+    "Copy": 675,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // トリミアン レディカット
+  "223": {
+    "Copy": 675,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // トリミアン マダムカット
+  "224": {
+    "Copy": 675,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // トリミアン ジェントルカット
+  "225": {
+    "Copy": 675,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // トリミアン クイーンカット
+  "226": {
+    "Copy": 675,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // トリミアン カブキカット
+  "227": {
+    "Copy": 675,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // トリミアン キングダムカット
+  "228": {
+    "Copy": 675,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ゼルネアス アクティブ
+  "237": {
+    "Copy": 715,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ジガルデ 50% スワームチェンジ
+  "239": {
+    "Copy": 717,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ジガルデ 50% スワームチェンジ
+  "240": {
+    "Copy": 717,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // オドリドリ ぱちぱち
+  "243": {
+    "Copy": 740,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // オドリドリ ふらふら
+  "244": {
+    "Copy": 740,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // オドリドリ まいまい
+  "245": {
+    "Copy": 740,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // イワンコ たそがれ
+  "246": {
+    "Copy": 743,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // シルヴァディ かくとう
+  "250": {
+    "Copy": 772,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // シルヴァディ ひこう
+  "251": {
+    "Copy": 772,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // シルヴァディ どく
+  "252": {
+    "Copy": 772,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // シルヴァディ じめん
+  "253": {
+    "Copy": 772,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // シルヴァディ いわ
+  "254": {
+    "Copy": 772,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // シルヴァディ むし
+  "255": {
+    "Copy": 772,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // シルヴァディ ゴースト
+  "256": {
+    "Copy": 772,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // シルヴァディ はがね
+  "257": {
+    "Copy": 772,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // シルヴァディ ほのお
+  "258": {
+    "Copy": 772,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // シルヴァディ みず
+  "259": {
+    "Copy": 772,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // シルヴァディ くさ
+  "260": {
+    "Copy": 772,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // シルヴァディ でんき
+  "261": {
+    "Copy": 772,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // シルヴァディ エスパー
+  "262": {
+    "Copy": 772,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // シルヴァディ こおり
+  "263": {
+    "Copy": 772,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // シルヴァディ ドラゴン
+  "264": {
+    "Copy": 772,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // シルヴァディ あく
+  "265": {
+    "Copy": 772,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // シルヴァディ フェアリー
+  "266": {
+    "Copy": 772,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // メテノ りゅうせい だいだいいろ
+  "267": {
+    "Copy": 773,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // メテノ りゅうせい きいろ
+  "268": {
+    "Copy": 773,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // メテノ りゅうせい みどりいろ
+  "269": {
+    "Copy": 773,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // メテノ りゅうせい みずいろ
+  "270": {
+    "Copy": 773,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // メテノ りゅうせい あおいろ
+  "271": {
+    "Copy": 773,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // メテノ りゅうせい むらさきいろ
+  "272": {
+    "Copy": 773,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // メテノ コア だいだいいろ
+  "274": {
+    "Copy": 1172,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // メテノ コア きいろ
+  "275": {
+    "Copy": 1172,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // メテノ コア みどりいろ
+  "276": {
+    "Copy": 1172,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // メテノ コア みずいろ
+  "277": {
+    "Copy": 1172,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // メテノ コア あおいろ
+  "278": {
+    "Copy": 1172,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // メテノ コア むらさきいろ
+  "279": {
+    "Copy": 1172,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ミミッキュ ばけのかわ
+  "280": {
+    "Copy": 777,
+    // 必須
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ネクロズマ ウルトラ
+  "283": {
+    "Copy": 799,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // マギアナ ?
+  "284": {
+    "Copy": 800,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ウッウ まるのみ サシカマス
+  "285": {
+    "Copy": 844,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ウッウ まるのみ ピカチュウ
+  "286": {
+    "Copy": 844,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ストリンダー ロー
+  "287": {
+    "Copy": 848,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ヤバチャ がんさく
+  "288": {
+    "Copy": 853,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // ポットデス がんさく
+  "289": {
+    "Copy": 854,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // マホイップ 2
+  "290": {
+    "Copy": 868,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // マホイップ 3
+  "291": {
+    "Copy": 868,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // マホイップ 4
+  "292": {
+    "Copy": 868,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // マホイップ 5
+  "293": {
+    "Copy": 868,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // マホイップ 6
+  "294": {
+    "Copy": 868,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // マホイップ 7
+  "295": {
+    "Copy": 868,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // マホイップ 8
+  "296": {
+    "Copy": 868,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // マホイップ 9
+  "297": {
+    "Copy": 868,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // コオリッポ ナイスフェイス
+  "298": {
+    "Copy": 874,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  },
+  // モルペコ はるぺこ
+  "300": {
+    "Copy": 876,
+    "H": true,
+    "A": true,
+    "B": true,
+    "C": true,
+    "D": true,
+    "S": true
+  }
+}

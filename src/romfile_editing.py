@@ -9,6 +9,7 @@ file_name = 'baseStatus.xlsx'
 rom_name = 'Pokemon Emerald Rogue EX (v1.3.2a).gba'
 filepath_pokemon_f_list = './src/pokemonForum.json'
 filePath_pokemon_f_indexs = './src/pokemon_hpCopylist.jsonc'
+filePath_pokemon_f_paramCopy = './src/pokemon_paramCopy.jsonc'
 
 # ROM 情報
 START_ADDRESS = 0x3A4310
@@ -20,7 +21,8 @@ write_option = {
   "MAX_Name_Pokemon_F": 308
 }
 
-WRITE_OPTION_POKENON = []
+WRITE_OPTION_Dependence = []
+WRITE_OPTION_ParamCopy = []
 
 read_len = write_option["MAX_Name_Pokemon"] + write_option["MAX_Name_Pokemon_F"]
 
@@ -63,19 +65,19 @@ def create_pokemon_f_HPCopyList(meIndex,copyIndex):
   return copystyle
 
 # 依存関係リスト作成
-def append_writeOption_forum(forum_data,start,length):
+def append_writeOption_forum_dependence(forum_data,start,length):
   start_pointer = write_option["MAX_Name_Pokemon"]
 
   for i in range(length):
     l_index = start + i
     c_index = start_pointer + l_index
-    WRITE_OPTION_POKENON.append(create_pokemon_f_HPCopyList(c_index,forum_data[str(l_index)]))
+    WRITE_OPTION_Dependence.append(create_pokemon_f_HPCopyList(c_index,forum_data[str(l_index)]))
     pass
 
   return
 
 # 書き出しオプションの初期化
-def init_write_option():
+def init_write_option_dependence():
 
   # json から読み取り
   copy_indexs = fileRead_jsonc(filePath_pokemon_f_indexs)
@@ -85,88 +87,257 @@ def init_write_option():
 
   # メガシンカ or ゲンシカイキ
   start = 0
-  append_writeOption_forum(copy_indexs,start,50)
+  append_writeOption_forum_dependence(copy_indexs,start,50)
 
   # ポワルン
   start = 129
-  append_writeOption_forum(copy_indexs,start,3)
+  append_writeOption_forum_dependence(copy_indexs,start,3)
 
   # チェリム
   start = 139
-  append_writeOption_forum(copy_indexs,start,1)
+  append_writeOption_forum_dependence(copy_indexs,start,1)
 
   # ギラティナ オリジン
   start = 147
-  append_writeOption_forum(copy_indexs,start,1)
+  append_writeOption_forum_dependence(copy_indexs,start,1)
 
   # ヒヒダルマ
   start = 167
-  append_writeOption_forum(copy_indexs,start,2)
+  append_writeOption_forum_dependence(copy_indexs,start,2)
   
   # メロエッタ
   start = 181
-  append_writeOption_forum(copy_indexs,start,1)
+  append_writeOption_forum_dependence(copy_indexs,start,1)
 
   # ゲノセクト
   start = 182
-  append_writeOption_forum(copy_indexs,start,4)
+  append_writeOption_forum_dependence(copy_indexs,start,4)
   
   # ゲッコウガ
   start = 186
-  append_writeOption_forum(copy_indexs,start,2)
+  append_writeOption_forum_dependence(copy_indexs,start,2)
   
   # ギルガルド
   start = 230
-  append_writeOption_forum(copy_indexs,start,1)
+  append_writeOption_forum_dependence(copy_indexs,start,1)
 
   # ゼルネアス
   start = 237
-  append_writeOption_forum(copy_indexs,start,1)
+  append_writeOption_forum_dependence(copy_indexs,start,1)
 
   # ヨワシ
   start = 249
-  append_writeOption_forum(copy_indexs,start,1)
+  append_writeOption_forum_dependence(copy_indexs,start,1)
 
   # メテノ
   start = 267
-  append_writeOption_forum(copy_indexs,start,13)
+  append_writeOption_forum_dependence(copy_indexs,start,13)
   
   # ミミッキュ
   start = 280
-  append_writeOption_forum(copy_indexs,start,1)
+  append_writeOption_forum_dependence(copy_indexs,start,1)
 
   # ネクロズマ
   start = 283
-  append_writeOption_forum(copy_indexs,start,1)
+  append_writeOption_forum_dependence(copy_indexs,start,1)
 
   # マギアナ ?
   start = 284
-  append_writeOption_forum(copy_indexs,start,1)
+  append_writeOption_forum_dependence(copy_indexs,start,1)
 
   # ウッウ
   start = 285
-  append_writeOption_forum(copy_indexs,start,2)
+  append_writeOption_forum_dependence(copy_indexs,start,2)
   
   # コオリッポ
   start = 298
-  append_writeOption_forum(copy_indexs,start,1)
+  append_writeOption_forum_dependence(copy_indexs,start,1)
 
   # モルペコ
   start = 300
-  append_writeOption_forum(copy_indexs,start,1)
+  append_writeOption_forum_dependence(copy_indexs,start,1)
 
   # ザシアン
   start = 301
-  append_writeOption_forum(copy_indexs,start,1)
+  append_writeOption_forum_dependence(copy_indexs,start,1)
 
   # ザマゼンタ
   start = 302
-  append_writeOption_forum(copy_indexs,start,1)
+  append_writeOption_forum_dependence(copy_indexs,start,1)
 
   # ブリザポス
   start = 306
-  append_writeOption_forum(copy_indexs,start,2)
+  append_writeOption_forum_dependence(copy_indexs,start,2)
   
+  return
+
+# 依存関係 パラメータコピー オブジェクト作成
+def create_pokemon_f_paramCopy(meIndex,copyIndex,param):
+  return {
+    "F_ID": meIndex,
+    "C_ID": copyIndex,
+    "Copy": param["Copy"],
+    "Params": param
+  }
+
+# 依存関係 パラメータコピー フラグ設定
+def append_writeOption_forum_paramCopy(start,length,param):
+  start_pointer = write_option["MAX_Name_Pokemon"]
+
+  for i in range(length):
+    l_index = start + i
+    c_index = start_pointer + l_index
+    WRITE_OPTION_ParamCopy.append(create_pokemon_f_paramCopy(l_index,c_index,param))
+  return
+
+# 依存関係 パラメータコピーフラグ
+def init_write_option_paramCopy():
+  # json から読み取り
+  paramCopy = fileRead_jsonc(filePath_pokemon_f_paramCopy)
+
+  # 依存関係
+  start = None
+
+  # ピカチュウ
+  start = 87
+  append_writeOption_forum_paramCopy(start,14,paramCopy[str(start)])
+
+  # ピチュー
+  start = 101
+  append_writeOption_forum_paramCopy(start,1,paramCopy[str(start)])
+
+  # アンノーン
+  start = 102
+  append_writeOption_forum_paramCopy(start,27,paramCopy[str(start)])
+
+  # ポワルン
+  start = 129
+  append_writeOption_forum_paramCopy(start,3,paramCopy[str(start)])
+
+  # チェリム
+  start = 139
+  append_writeOption_forum_paramCopy(start,1,paramCopy[str(start)])
+
+  # カラナクシ
+  start = 140
+  append_writeOption_forum_paramCopy(start,1,paramCopy[str(start)])
+
+  # トリトドン
+  start = 141
+  append_writeOption_forum_paramCopy(start,1,paramCopy[str(start)])
+
+  # ロトム
+  start = 142
+  append_writeOption_forum_paramCopy(start,5,paramCopy[str(start)])
+
+  # アルセウス
+  start = 149
+  append_writeOption_forum_paramCopy(start,17,paramCopy[str(start)])
+
+  # シキジカ
+  start = 169
+  append_writeOption_forum_paramCopy(start,3,paramCopy[str(start)])
+
+  # メブキジカ
+  start = 172
+  append_writeOption_forum_paramCopy(start,3,paramCopy[str(start)])
+
+  # メロエッタ
+  start = 181
+  append_writeOption_forum_paramCopy(start,1,paramCopy[str(start)])
+
+  # ゲノセクト
+  start = 182
+  append_writeOption_forum_paramCopy(start,4,paramCopy[str(start)])
+
+  # ゲッコウガ
+  start = 186
+  append_writeOption_forum_paramCopy(start,2,paramCopy[str(start)])
+
+  # ビビヨン
+  start = 188
+  append_writeOption_forum_paramCopy(start,19,paramCopy[str(start)])
+
+  # フラベベ
+  start = 207
+  append_writeOption_forum_paramCopy(start,4,paramCopy[str(start)])
+
+  # フラエッテ
+  start = 211
+  append_writeOption_forum_paramCopy(start,4,paramCopy[str(start)])
+
+  # フラージェス
+  start = 216
+  append_writeOption_forum_paramCopy(start,4,paramCopy[str(start)])
+
+  # トリミアン
+  start = 220
+  append_writeOption_forum_paramCopy(start,9,paramCopy[str(start)])
+
+  # ゼルネアス
+  start = 237
+  append_writeOption_forum_paramCopy(start,1,paramCopy[str(start)])
+
+  # ジガルデ
+  start = 239
+  append_writeOption_forum_paramCopy(start,2,paramCopy[str(start)])
+
+  # オドリドリ
+  start = 243
+  append_writeOption_forum_paramCopy(start,3,paramCopy[str(start)])
+
+  # イワンコ
+  start = 246
+  append_writeOption_forum_paramCopy(start,1,paramCopy[str(start)])
+
+  # シルヴァディ
+  start = 250
+  append_writeOption_forum_paramCopy(start,17,paramCopy[str(start)])
+
+  # メテノ
+  start = 267
+  append_writeOption_forum_paramCopy(start,13,paramCopy[str(start)])
+
+  # ミミッキュ
+  start = 280
+  append_writeOption_forum_paramCopy(start,1,paramCopy[str(start)])
+
+  # ネクロズマ
+  start = 283
+  append_writeOption_forum_paramCopy(start,1,paramCopy[str(start)])
+
+  # マギアナ
+  start = 284
+  append_writeOption_forum_paramCopy(start,1,paramCopy[str(start)])
+
+  # ウッウ
+  start = 285
+  append_writeOption_forum_paramCopy(start,2,paramCopy[str(start)])
+
+  # ストリンダー
+  start = 287
+  append_writeOption_forum_paramCopy(start,1,paramCopy[str(start)])
+
+  # ヤバチャ
+  start = 288
+  append_writeOption_forum_paramCopy(start,1,paramCopy[str(start)])
+
+  # ポットデス
+  start = 289
+  append_writeOption_forum_paramCopy(start,1,paramCopy[str(start)])
+
+  # マホイップ
+  start = 290
+  append_writeOption_forum_paramCopy(start,8,paramCopy[str(start)])
+
+  # コオリッポ
+  start = 298
+  append_writeOption_forum_paramCopy(start,1,paramCopy[str(start)])
+
+  # モルペコ
+  start = 300
+  append_writeOption_forum_paramCopy(start,1,paramCopy[str(start)])
+
   return
 
 # 種族値データ読み取り
@@ -303,11 +474,21 @@ def fetch_html_pokemonData():
 # 依存関係 HP チェック
 def filter_Dependence_HP_Forum(dex_id):
   match_forums = []
-  for val in WRITE_OPTION_POKENON:
+  for val in WRITE_OPTION_Dependence:
     isMatch = ('Copy',dex_id) in val.items()
     if isMatch == True:
       match_forums.append(val)
   
+  return match_forums
+
+# 依存関係 コピーフラグチェック
+def filter_ParamCopy_Forum(dex_id):
+  match_forums = []
+  for val in WRITE_OPTION_ParamCopy:
+    isMatch = ('Copy',dex_id) in val.items()
+    if isMatch == True:
+      match_forums.append(val)
+
   return match_forums
 
 # ROM 書き出す パラメータ
@@ -360,8 +541,37 @@ def edit_rom_param(rom_data,excel_data):
       elif row == 0x09:
         rom_data[start_pointer + row] = int(pokemonData[5])
       pass
+    
+    # 依存先パラメータコピーポインタ
+    paramcopy_pointer = None
+    match_param = filter_ParamCopy_Forum(i)
 
-    print('test')
+    # 依存関係あり
+    if len(match_param) > 0:
+      for param in match_param:
+        # コピーフラグがある要素をコピー
+        m_index = param["C_ID"]
+
+        # HP
+        if param["Params"]["H"] == True:
+          excel_data[m_index][1] = int(pokemonData[1])
+        # 攻撃
+        if param["Params"]["A"] == True:
+          excel_data[m_index][2] = int(pokemonData[2])
+        # 防御
+        if param["Params"]["B"] == True:
+          excel_data[m_index][3] = int(pokemonData[3])
+        # 特攻
+        if param["Params"]["C"] == True:
+          excel_data[m_index][4] = int(pokemonData[4])
+        # 特防
+        if param["Params"]["D"] == True:
+          excel_data[m_index][5] = int(pokemonData[5])
+        # 素早さ
+        if param["Params"]["S"] == True:
+          excel_data[m_index][6] = int(pokemonData[6])
+        pass
+    
     pass
 
   # bytes に戻す
@@ -435,16 +645,14 @@ if __name__ == '__main__':
     return
   
   # 初期化処理
-  init_write_option()
+  init_write_option_dependence()
+  init_write_option_paramCopy()
 
   # 初期読み込み
 
-  # write_first()
+  write_first()
 
   # 書き出し
-
-  # for vals in WRITE_OPTION_POKENON:
-  #   print(773 in vals.values())
 
   # writing_rom()
   print('fin rom edited!')
