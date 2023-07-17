@@ -3,20 +3,24 @@ import pandas as pd
 import requests
 import bs4
 
-import json
+import json , re
 
 file_name = 'baseStatus.xlsx'
 rom_name = 'Pokemon Emerald Rogue EX (v1.3.2a).gba'
-json_name = './src/pokemonForum.json'
+filepath_pokemon_f_list = './src/pokemonForum.json'
+filePath_pokemon_f_indexs = './src/pokemon_hpCopylist.jsonc'
 
 # ROM 情報
 START_ADDRESS = 0x3A4310
 LEN_POKEMON_BASE = 0x24
 
+# 書き出しオプション
 write_option = {
   "MAX_Name_Pokemon": 898,
   "MAX_Name_Pokemon_F": 308
 }
+
+WRITE_OPTION_POKENON = []
 
 read_len = write_option["MAX_Name_Pokemon"] + write_option["MAX_Name_Pokemon_F"]
 
@@ -38,6 +42,132 @@ row_Name = {
 html_urls = {
   "Name": "https://wiki.xn--rckteqa2e.com/wiki/%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%E4%B8%80%E8%A6%A7"
 }
+
+# jsonc 形式ファイルの読み取り
+def fileRead_jsonc(filepath):
+  datas = None
+  with open(filepath,'r') as f:
+    datas = f.read()
+    f.close()
+  
+  format_data = re.sub(r'/\*[\s\S]*?\*/|//.*','',datas)
+  json_obj = json.loads(format_data)
+  return json_obj
+
+# 依存先のリストを作成
+def create_pokemon_f_HPCopyList(meIndex,copyIndex):
+  copystyle = {
+    'Me': meIndex,
+    'Copy': copyIndex
+  }
+  return copystyle
+
+# 依存関係リスト作成
+def append_writeOption_forum(forum_data,start,length):
+  start_pointer = write_option["MAX_Name_Pokemon"]
+
+  for i in range(length):
+    l_index = start + i
+    c_index = start_pointer + l_index
+    WRITE_OPTION_POKENON.append(create_pokemon_f_HPCopyList(c_index,forum_data[str(l_index)]))
+    pass
+
+  return
+
+# 書き出しオプションの初期化
+def init_write_option():
+
+  # json から読み取り
+  copy_indexs = fileRead_jsonc(filePath_pokemon_f_indexs)
+
+  # HP 依存関係 あり
+  start = None
+
+  # メガシンカ or ゲンシカイキ
+  start = 0
+  append_writeOption_forum(copy_indexs,start,50)
+
+  # ポワルン
+  start = 129
+  append_writeOption_forum(copy_indexs,start,3)
+
+  # チェリム
+  start = 139
+  append_writeOption_forum(copy_indexs,start,1)
+
+  # ギラティナ オリジン
+  start = 147
+  append_writeOption_forum(copy_indexs,start,1)
+
+  # ヒヒダルマ
+  start = 167
+  append_writeOption_forum(copy_indexs,start,2)
+  
+  # メロエッタ
+  start = 181
+  append_writeOption_forum(copy_indexs,start,1)
+
+  # ゲノセクト
+  start = 182
+  append_writeOption_forum(copy_indexs,start,4)
+  
+  # ゲッコウガ
+  start = 186
+  append_writeOption_forum(copy_indexs,start,2)
+  
+  # ギルガルド
+  start = 230
+  append_writeOption_forum(copy_indexs,start,1)
+
+  # ゼルネアス
+  start = 237
+  append_writeOption_forum(copy_indexs,start,1)
+
+  # ヨワシ
+  start = 249
+  append_writeOption_forum(copy_indexs,start,1)
+
+  # メテノ
+  start = 267
+  append_writeOption_forum(copy_indexs,start,13)
+  
+  # ミミッキュ
+  start = 280
+  append_writeOption_forum(copy_indexs,start,1)
+
+  # ネクロズマ
+  start = 283
+  append_writeOption_forum(copy_indexs,start,1)
+
+  # マギアナ ?
+  start = 284
+  append_writeOption_forum(copy_indexs,start,1)
+
+  # ウッウ
+  start = 285
+  append_writeOption_forum(copy_indexs,start,2)
+  
+  # コオリッポ
+  start = 298
+  append_writeOption_forum(copy_indexs,start,1)
+
+  # モルペコ
+  start = 300
+  append_writeOption_forum(copy_indexs,start,1)
+
+  # ザシアン
+  start = 301
+  append_writeOption_forum(copy_indexs,start,1)
+
+  # ザマゼンタ
+  start = 302
+  append_writeOption_forum(copy_indexs,start,1)
+
+  # ブリザポス
+  start = 306
+  append_writeOption_forum(copy_indexs,start,2)
+  
+  return
 
 # 種族値データ読み取り
 def fetch_rom_baseStatus():
@@ -81,7 +211,7 @@ def fetch_rom_baseStatus():
 
 # ポケモンの別フォルム名を取得
 def fetch_PokemonName_Forum():
-  f = open(json_name)
+  f = open(filepath_pokemon_f_list)
   data = json.load(f)
   f.close()
   
@@ -170,6 +300,16 @@ def fetch_html_pokemonData():
 
   return export_data
 
+# 依存関係 HP チェック
+def filter_Dependence_HP_Forum(dex_id):
+  match_forums = []
+  for val in WRITE_OPTION_POKENON:
+    isMatch = ('Copy',dex_id) in val.items()
+    if isMatch == True:
+      match_forums.append(val)
+  
+  return match_forums
+
 # ROM 書き出す パラメータ
 def edit_rom_param(rom_data,excel_data):
 
@@ -182,11 +322,28 @@ def edit_rom_param(rom_data,excel_data):
   for i in range(read_len):
     pokemonData = excel_data[i]
 
+    # 基準ポインタ
     start_pointer = START_ADDRESS + i * LEN_POKEMON_BASE
+    # 依存先ポインタ
+    forum_pointer = None
+
     for row in range(LEN_POKEMON_BASE):
       # HP
       if row == 0x04:
         rom_data[start_pointer + row] = int(pokemonData[1])
+        match_forum = filter_Dependence_HP_Forum(i)
+
+        # 依存しているポケモンあり
+        if len(match_forum) > 0:
+          for forum in match_forum:
+            # コピーしたいポケモン
+            me_index = forum["Me"]
+            forum_pointer = START_ADDRESS + me_index * LEN_POKEMON_BASE
+            # ROM 情報
+            rom_data[forum_pointer + row] = int(pokemonData[1])
+            # Excel 情報を上書き
+            excel_data[me_index][1] = int(pokemonData[1])
+
       # 攻撃
       elif row == 0x05:
         rom_data[start_pointer + row] = int(pokemonData[2])
@@ -202,6 +359,10 @@ def edit_rom_param(rom_data,excel_data):
       # 特防
       elif row == 0x09:
         rom_data[start_pointer + row] = int(pokemonData[5])
+      pass
+
+    print('test')
+    pass
 
   # bytes に戻す
   rom_data = bytes(rom_data)
@@ -273,12 +434,18 @@ if __name__ == '__main__':
     write_rom(excel_data)
     return
   
+  # 初期化処理
+  init_write_option()
 
-  # 読み込み
+  # 初期読み込み
 
   # write_first()
 
   # 書き出し
-  writing_rom()
+
+  # for vals in WRITE_OPTION_POKENON:
+  #   print(773 in vals.values())
+
+  # writing_rom()
   print('fin rom edited!')
   print()
