@@ -1,3 +1,4 @@
+from openpyxl import load_workbook
 import pandas as pd
 
 import requests
@@ -27,8 +28,9 @@ WRITE_OPTION_ParamCopy = []
 read_len = write_option["MAX_Name_Pokemon"] + write_option["MAX_Name_Pokemon_F"]
 
 sheet_Name = {
-  "Master": 'BaseMaster',
-  "Edit": 'Edit'
+  "Edit": 'Edit',
+  "EditCalc": "EditCalc",
+  "Master": 'BaseMaster'
 }
 
 row_Name = {
@@ -42,7 +44,8 @@ row_Name = {
 }
 
 html_urls = {
-  "Name": "https://wiki.xn--rckteqa2e.com/wiki/%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%E4%B8%80%E8%A6%A7"
+  "Name": "https://wiki.xn--rckteqa2e.com/wiki/%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%E4%B8%80%E8%A6%A7",
+  "BaseStatus": "https://pokemondb.net/pokedex/all"
 }
 
 # jsonc 形式ファイルの読み取り
@@ -340,6 +343,54 @@ def init_write_option_paramCopy():
 
   return
 
+# 種族値データ読み取り 未完成
+def fetch_baseStatus():
+  req = requests.get(html_urls["BaseStatus"])
+  html_text = bs4.BeautifulSoup(req.text,'html.parser')
+
+  # select = "table#pokemon-base-stats-table > tbody > tr"
+  select = "div.resp-scroll > table > tbody > tr"
+
+  divs = {
+    "Number": html_text.select(select + " " + "td:nth-of-type(1) > span:nth-of-type(2)"),
+    "H": html_text.select(select + " " + "td:nth-of-type(5)"),
+    "A": html_text.select(select + " " + "td:nth-of-type(6)"),
+    "B": html_text.select(select + " " + "td:nth-of-type(7)"),
+    "C": html_text.select(select + " " + "td:nth-of-type(8)"),
+    "D": html_text.select(select + " " + "td:nth-of-type(9)"),
+    "S": html_text.select(select + " " + "td:nth-of-type(10)")
+  }
+
+  export_data = []
+
+  # 全体のデータを取得
+  for i in range(len(divs["Number"])):
+    n_text = divs["Number"][i].get_text()
+    num = int(n_text)
+
+    ex_data = []
+    i_h = int(divs["H"][i].get_text())
+    i_a = int(divs["A"][i].get_text())
+    i_b = int(divs["B"][i].get_text())
+    i_c = int(divs["C"][i].get_text())
+    i_d = int(divs["D"][i].get_text())
+    i_s = int(divs["S"][i].get_text())
+
+    ex_data.append(num)
+    ex_data.append(i_h)
+    ex_data.append(i_a)
+    ex_data.append(i_b)
+    ex_data.append(i_c)
+    ex_data.append(i_d)
+    ex_data.append(i_s)
+
+    export_data.append(ex_data)
+    pass
+
+  print(export_data)
+
+  return
+
 # 種族値データ読み取り
 def fetch_rom_baseStatus():
   with open(rom_name,'rb') as f:
@@ -542,10 +593,7 @@ def edit_rom_param(rom_data,excel_data):
         rom_data[start_pointer + row] = int(pokemonData[5])
       pass
     
-    # 依存先パラメータコピーポインタ
-    paramcopy_pointer = None
     match_param = filter_ParamCopy_Forum(i)
-
     # 依存関係あり
     if len(match_param) > 0:
       for param in match_param:
@@ -580,18 +628,74 @@ def edit_rom_param(rom_data,excel_data):
   return rom_data
 
 # Excel 読み込み
-def read_excel(sheet_Name):
-  excel_file = pd.ExcelFile(file_name)
-  df_master = pd.read_excel(excel_file,sheet_Name,index_col=0)
+def read_excel(sheet_Name,paramOnly=True):
 
-  values = df_master.values
-  return values
+  if paramOnly == True:
+    excel_file = pd.ExcelFile(file_name)
+    df_master = pd.read_excel(excel_file,sheet_Name,index_col=0)
+
+    values = df_master.values
+
+    return values
+  else:
+    wb = load_workbook(file_name)
+    sheet_ranges = wb[sheet_Name]
+    values = sheet_ranges.values
+
+    # list
+    testlist = []
+    for val in values:
+      testlist.append(list(val))
+      pass
+
+    # Key の設定
+    testObj = {}
+
+    # Key を配列から取得
+    Keys = testlist.pop(0)
+
+    # Index Key の削除
+    Keys.pop(0)
+
+    # 配列の初期化
+    for val in Keys:
+      testObj[val] = []
+
+    for val in testlist:
+      for i in range(len(Keys)):
+        testObj[Keys[i]].append(val[i + 1])
+
+    return testObj
 
 # Excel 書き出し
-def write_excel():
-  # 編集用 保存
-  export_file = pd.DataFrame(row_Name)
-  export_file.to_excel(file_name,index=True,sheet_name=sheet_Name["Master"])
+def write_excel(writer_option):
+
+  if writer_option == False:
+    # 編集用 保存
+    export_file_edit = pd.DataFrame(row_Name)
+    export_file_editcalc = export_file_edit.copy()
+    export_file_base = export_file_edit.copy()
+
+    with pd.ExcelWriter(file_name) as writer:
+      export_file_edit.to_excel(writer,sheet_Name["Edit"],index=True)
+      export_file_editcalc.to_excel(writer,sheet_Name["EditCalc"],index=True)
+      export_file_base.to_excel(writer,sheet_Name["Master"],index=True)
+
+  elif writer_option == True:   
+    # Edit
+    excel_data_editCalc = read_excel(sheet_Name["EditCalc"],False)
+    excel_data_base = read_excel(sheet_Name["Master"],False)
+
+    export_file_editCalc = pd.DataFrame(excel_data_editCalc)
+    export_file_base = pd.DataFrame(excel_data_base)
+    export_file_edit = pd.DataFrame(row_Name)
+
+    with pd.ExcelWriter(file_name) as writer:
+      export_file_edit.to_excel(writer,sheet_Name["Edit"],index=True)
+      export_file_editCalc.to_excel(writer,sheet_Name["EditCalc"])
+      export_file_base.to_excel(writer,sheet_Name["Master"],index=True)
+
+  return
 
 # ROM 書き出し
 def write_rom(excel_data):
@@ -618,7 +722,7 @@ def write_rom(excel_data):
 if __name__ == '__main__':
 
   # 初期書き出し
-  def write_first():
+  def excel_export_common():
     # ROM read 種族値データ
     base_status = fetch_rom_baseStatus()
 
@@ -632,28 +736,45 @@ if __name__ == '__main__':
 
     attach_PokemonNameAll(pokemon_names,pokemonlist_names_f)
 
+    return
+
+  # 初期書き出し
+  def excel_export_first():
+    # 共通処理
+    excel_export_common()
+
     # 書き出し
-    write_excel()
+    write_excel(False)
 
     return
+
+  # 初回以降の書き出し
+  def excel_export_RomEditAfter():
+    excel_export_common()
+
+    # 書き出し
+    write_excel(True)
+    return
+
   
   # ROM書き出し
   def writing_rom():
     # 読み込み
-    excel_data = read_excel(sheet_Name["Master"])
+    excel_data = read_excel(sheet_Name["Edit"])
     write_rom(excel_data)
     return
   
   # 初期化処理
   init_write_option_dependence()
   init_write_option_paramCopy()
-
+  
   # 初期読み込み
 
-  write_first()
+  # excel_export_first()
+  # excel_export_RomEditAfter()
 
   # 書き出し
 
-  # writing_rom()
+  writing_rom()
   print('fin rom edited!')
   print()
