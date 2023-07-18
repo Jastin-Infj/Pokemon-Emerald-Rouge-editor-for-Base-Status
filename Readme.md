@@ -1,7 +1,5 @@
 # Pokemon Emerald Rouge BaseStatus Editor
 
----
-
 Pokemon Emerald Rouge の 内部データを変更することができます
 
 **必要なもの:**
@@ -13,8 +11,6 @@ Pokemon Emerald Rouge の 内部データを変更することができます
 **ROMデータを編集行うため、事前にバックアップを推奨します**
 
 # Usege
-
----
 
 ## Command 1 はじめて利用するとき
 
@@ -58,12 +54,6 @@ COMMAND = 0
 ## Command 2 初回以降のExcel ファイル抽出
 
 上記と基本的なデータは変化しない
-
-必要なもの:
-
-- ROMデータ Pokemon Emerald Rouge v1.3.2a の ROM 形式
-※ROM をネットからダウンロードするのは日本国内において違法になっております。
-- 初回でエクスポートしたExcelファイル
 
 - Edit
 
