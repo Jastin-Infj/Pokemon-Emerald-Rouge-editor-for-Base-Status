@@ -6,6 +6,10 @@ import bs4
 
 import json , re
 
+# コマンド
+COMMAND_LIST = ("FIRST_EXCEL_EXPORT","AFTER_EXCEL_EXPORT","ROM_EDITING")
+COMMAND = 2
+
 file_name = 'baseStatus.xlsx'
 rom_name = 'Pokemon Emerald Rogue EX (v1.3.2a).gba'
 filepath_pokemon_f_list = './src/pokemonForum.json'
@@ -768,13 +772,18 @@ if __name__ == '__main__':
   init_write_option_dependence()
   init_write_option_paramCopy()
   
-  # 初期読み込み
+  command_0 = COMMAND_LIST[0]
+  command_1 = COMMAND_LIST[1]
+  command_2 = COMMAND_LIST[2]
 
-  # excel_export_first()
-  # excel_export_RomEditAfter()
-
-  # 書き出し
-
-  writing_rom()
+  if COMMAND_LIST[COMMAND] == command_0:
+    # 初期読み込み
+    excel_export_first()
+  elif COMMAND_LIST[COMMAND] == command_1:
+    excel_export_RomEditAfter()
+  elif COMMAND_LIST[COMMAND] == command_2:
+    # 書き出し
+    writing_rom()
+  
   print('fin rom edited!')
   print()
