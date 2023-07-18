@@ -55,7 +55,7 @@ html_urls = {
 # jsonc 形式ファイルの読み取り
 def fileRead_jsonc(filepath):
   datas = None
-  with open(filepath,'r') as f:
+  with open(filepath,'r',encoding='utf-8') as f:
     datas = f.read()
     f.close()
   
@@ -437,7 +437,7 @@ def fetch_rom_baseStatus():
 
 # ポケモンの別フォルム名を取得
 def fetch_PokemonName_Forum():
-  f = open(filepath_pokemon_f_list)
+  f = open(filepath_pokemon_f_list,encoding='utf-8')
   data = json.load(f)
   f.close()
   
