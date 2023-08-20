@@ -2,6 +2,9 @@
 
 Pokemon Emerald Rouge の 内部データを変更することができます
 
+![image](https://github.com/Jastin-Infj/PokemonEditBaseStatus/assets/34806778/948b9766-9299-4fe3-88af-d1a6481d111d)
+
+
 **必要なもの:**
 
 - **ROMデータ Pokemon Emerald Rouge v1.3.2a の ROM 形式**
